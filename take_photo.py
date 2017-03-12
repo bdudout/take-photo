@@ -81,6 +81,7 @@ if __name__ == '__main__':
         supported='0'
         detected='0'
         print("cannot run vcgencmd");
+        print(os.environ())
 
     if 'RPI' in CAMERA or detected == '1':
         rpi_camera_photo()
