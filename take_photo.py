@@ -49,7 +49,8 @@ def usb_camera_photo():
         cv2.imwrite(image_filename(), image)
         print("Image saved: {}".format(image_filename()))
     else:  # no image has been returned by the camera
-        print("Problem getting image.")
+        print("Problem getting image from USB.")
+        rpi_camera_photo()
 
 def rpi_camera_photo():
     'Take a photo using the Raspberry Pi Camera.'
@@ -73,7 +74,7 @@ if __name__ == '__main__':
     #for some rpi3, the rpi camera does not appear in os.environ, we use 
     # vcgencmd get_camera and check if the camera is plugged
     try:
-        out=subprocess.check_output(['/opt/vc/bin/vcgencmd','get_camera'])
+        out=subprocess.check_output(['vcgencmd','get_camera'])
         dict=dict(s.split('=') for s in out.rstrip().split(' '))
         supported=dict['supported']
         detected=dict['detected']
@@ -81,7 +82,7 @@ if __name__ == '__main__':
         supported='0'
         detected='0'
         print("cannot run vcgencmd");
-        print(os.environ)
+        #print(os.environ)
 
     if 'RPI' in CAMERA or detected == '1':
         rpi_camera_photo()
