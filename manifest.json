@@ -5,7 +5,7 @@
  "description": "Take a photo with a RPI camera using Python OpenCV.",
  "version": "0.0.1",
  "min_os_version_major": 3,
- "url": "https://raw.githubusercontent.com/bdudout/take-photo/manifest.json",
+ "url": "https://raw.githubusercontent.com/bdudout/take-photo/master/manifest.json",
  "zip": "https://github.com/bdudout/take-photo/archive/master.zip",
  "executable": "python",
  "args": ["take-photo-master/take_photo.py"]
